@@ -22,7 +22,6 @@ class SpudSecurityGrailsPlugin {
 
 
     def doWithSpring = {
-        application.config.spud.securityService = 'spudSecurityService'
         application.config.grails.plugins.springsecurity.password.algorithm = 'SHA-512'
         application.config.grails.plugins.springsecurity.userLookup.userDomainClassName = 'spud.security.SpudUser'
         application.config.grails.plugins.springsecurity.userLookup.usernamePropertyName = 'login'
@@ -31,6 +30,8 @@ class SpudSecurityGrailsPlugin {
         application.config.grails.plugins.springsecurity.authority.nameField = 'authority'
         application.config.grails.plugins.springsecurity.userLookup.authoritiesPropertyName = 'authorities'
 
-        springConfig.addAlias "spudSecurity", 'spudSecurityService'
+        sharedSecurityBridge(spud.security.SpudSecurityBridge) {
+            springSecurityService = ref('springSecurityService')
+        }
     }
 }
