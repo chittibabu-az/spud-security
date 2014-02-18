@@ -6,16 +6,17 @@ Implements Security, using Spring Security Core, for SpudCore and the rest of th
 Installation/Usage
 ------------------
 
-TODO: Add installation information here
+To install simply add the spud-security plugin to your BuildConfig:
 
+```groovy
+plugins {
+  compile ':spud-security:0.1.0'
+}
+```
 
-Testing
------------------
+This plugin also provides a convenient administrative interface for managing users/roles. (View from your /spud/admin interface). 
 
-TODO: Add Testing Information
+**First Time Users**: First time users will be redirected to a setup page where an initial user can be created.
 
-NOTE: Spud Core is Retina Resolution Compatible Now
+This plugin is compatible and implements a `grails-security-bridge`.
 
-License
--------
-This

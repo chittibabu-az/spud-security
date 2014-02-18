@@ -16,26 +16,20 @@
 import spud.security.SpudSecurityBridge
 
 class SpudSecurityGrailsPlugin {
-    // the plugin version
-    def version = "0.1"
-    // the version or versions of Grails the plugin is designed for
+    def version = "0.1.0"
     def grailsVersion = "2.3 > *"
-    // resources that are excluded from plugin packaging
     def pluginExcludes = [
         "grails-app/views/error.gsp"
     ]
-
-    def title = "Spud Security Plugin"
-    def author = "David Estes"
+    def title       = "Spud Security Plugin"
+    def author      = "David Estes"
     def authorEmail = "destes@bcap.com"
     def description = "Implements Security, using Spring Security Core, for SpudCore and the rest of the spud suite. Spud Security also provides user models and role models that can be managed from a convenient administrative panel within the spud admin."
-
-    // URL to the plugin's documentation
-    def documentation = "http://grails.org/plugin/spud-security"
+    def documentation = "https://github.com/spud-grails/spud-security"
     def license = "APACHE"
     def organization = [name: "Bertram Labs", url: "http://www.bertramlabs.com/"]
-    def issueManagement = [system: "GITHUB", url: "https://github.com/bertramdev/spud-grails/issues"]
-    def scm = [url: "https://github.com/bertramdev/spud-grails"]
+    def issueManagement = [system: "GITHUB", url: "https://github.com/spud-grails/spud-security/issues"]
+    def scm = [url: "https://github.com/spud-grails/spud-security"]
 
 
     def doWithSpring = {
