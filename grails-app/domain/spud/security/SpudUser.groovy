@@ -103,4 +103,8 @@ class SpudUser {
 		this.lastRequestAt = new Date()
 		this.save()
 	}
+
+	public String toString() {
+		return this.displayName
+	}
 }

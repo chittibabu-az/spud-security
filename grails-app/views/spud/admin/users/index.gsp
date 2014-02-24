@@ -28,7 +28,7 @@
           <td></td>
           <td>${user.dateCreated}</td>
           <td align="right">
-            <spAdmin:link controller="user" action="delete" id="${user.id}" date-confirm="Are you sure you want to remove this user?" class="btn btn-danger">Remove</spAdmin:link>
+            <spAdmin:link action="delete" data-method="DELETE" method="DELETE" id="${user.id}" data-confirm="Are you sure you want to remove this user?" class="btn btn-danger">Remove</spAdmin:link>
           </td>
         </tr>
       </g:each>

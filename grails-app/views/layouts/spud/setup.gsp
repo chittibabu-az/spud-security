@@ -2,8 +2,8 @@
 <html>
 	<head>
 	  <title>Spud Admin</title>
-	  <asset:stylesheet src="spud/admin/application"/>
-	  <asset:javascript src="spud/admin/application"/>
+	  <asset:stylesheet src="spud/admin/application.css"/>
+	  <asset:javascript src="spud/admin/application.js"/>
 	  <g:layoutHead/>
 	</head>
 	<body>

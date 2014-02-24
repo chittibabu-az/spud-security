@@ -2,7 +2,7 @@
 <html>
 <head>
   <title>Spud Admin</title>
-  <asset:stylesheet src="spud/login"/>
+  <asset:stylesheet src="spud/login.css"/>
   <g:layoutHead/>
 </head>
 <body>
