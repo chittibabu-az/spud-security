@@ -69,10 +69,10 @@ class UserController {
 		}
 
 
-
-		user.properties += params.user
+		bindData(user, params.user)
 		if(!user.save(flush:true)) {
 			flash.error = "Error Saving User"
+			println user.errors
 			render view: '/spud/admin/users/edit', model: [user: user]
 			return
 		}

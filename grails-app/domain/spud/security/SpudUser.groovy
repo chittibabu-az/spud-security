@@ -48,6 +48,8 @@ class SpudUser {
 		lastRequestAt nullable:true
 		firstName nullable:true
 		lastName nullable:true
+
+		// Add Custom Validator on Password to match against transient passwordConfirmation
 	}
 
 	static mapping = {
@@ -82,6 +84,12 @@ class SpudUser {
 	def beforeUpdate() {
 		if (isDirty('password')) {
 			encodePassword()
+		}
+	}
+
+	void setPassword(String newPassword) {
+		if(newPassword) {
+			password = newPassword
 		}
 	}
 
