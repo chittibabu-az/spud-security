@@ -22,7 +22,7 @@ grails.project.dependency.resolution = {
     }
 
     plugins {
-        runtime ':spud-core:0.1.1'
+        runtime ':spud-core:0.1.4'
         compile ":spring-security-core:1.2.7.3"
         build(":release:3.0.0",
               ":rest-client-builder:1.0.3") {
