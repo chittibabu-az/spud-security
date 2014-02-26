@@ -1,11 +1,11 @@
 package spud.security
 
-import org.grails.plugin.securitybridge.SecurityBridge
+import org.grails.plugin.securitybridge.AbstractSecurityBridge
 import org.springframework.security.web.savedrequest.DefaultSavedRequest
 import org.springframework.security.web.WebAttributes
 import java.lang.reflect.Field
 
-class SpudSecurityBridge implements SecurityBridge{
+class SpudSecurityBridge extends AbstractSecurityBridge{
 	def springSecurityService
 
 		/**
