@@ -2,7 +2,7 @@ package spud.admin
 import  spud.core.*
 import  spud.security.*
 
-@SpudApp(name="Users", thumbnail="spud/admin/users_thumb.png", order="99")
+@SpudApp(name="Users", thumbnail="spud/admin/users_icon.png", order="99")
 @SpudSecure(['USERS'])
 class UserController {
 	static namespace = 'spud_admin'
