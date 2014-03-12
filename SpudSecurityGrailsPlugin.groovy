@@ -40,7 +40,8 @@ class SpudSecurityGrailsPlugin {
         application.config.grails.plugins.springsecurity.authority.className = 'spud.security.SpudRole'
         application.config.grails.plugins.springsecurity.authority.nameField = 'authority'
         application.config.grails.plugins.springsecurity.userLookup.authoritiesPropertyName = 'authorities'
-
+        // application.config.grails.plugin.springsecurity.rejectIfNoRule = true
+        // application.config.grails.plugin.springsecurity.fii.rejectPublicInvocations = false
         sharedSecurityBridge(SpudSecurityBridge) {
             springSecurityService = ref('springSecurityService')
         }

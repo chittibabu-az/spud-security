@@ -40,7 +40,7 @@ class LoginController {
 	 * Show the login page.
 	 */
 	def auth = {
-
+		println "WE ARE HITTING THE ACTION"
 		def config = SpringSecurityUtils.securityConfig
 
 		if (springSecurityService.isLoggedIn()) {
@@ -50,7 +50,7 @@ class LoginController {
 
 		String view = 'auth'
 		String postUrl = "${request.contextPath}${config.apf.filterProcessesUrl}"
-		render view: view, model: [postUrl: postUrl,
+		render view: '/login/auth', model: [postUrl: postUrl,
 		                           rememberMeParameter: config.rememberMe.parameter]
 	}
 
