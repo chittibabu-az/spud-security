@@ -7,8 +7,9 @@ class SpudSecurityUrlMappings {
 		"/spud/setup"(controller: "setup", namespace: "spud_admin", action: "create", method: "GET")
 		"/spud/setup"(controller: "setup", namespace: "spud_admin", action: "save", method: "POST")
 
-		// "/login/auth"(controller: 'login', action: 'auth')
+		"/login/auth"(controller: 'login', action: 'auth')
+		"/logout/index"(controller: 'logout', action: 'index', method: 'POST')
 
-		// "/login/$action"(controller: 'login')
+		"/login/$action"(controller: 'login')
 	}
 }
