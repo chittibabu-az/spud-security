@@ -33,13 +33,17 @@ class SpudSecurityGrailsPlugin {
 
 
     def doWithSpring = {
-        application.config.grails.plugins.springsecurity.password.algorithm = 'SHA-512'
-        application.config.grails.plugins.springsecurity.userLookup.userDomainClassName = 'spud.security.SpudUser'
-        application.config.grails.plugins.springsecurity.userLookup.usernamePropertyName = 'login'
-        application.config.grails.plugins.springsecurity.password.algorithm = 'SHA-512'
-        application.config.grails.plugins.springsecurity.authority.className = 'spud.security.SpudRole'
-        application.config.grails.plugins.springsecurity.authority.nameField = 'authority'
-        application.config.grails.plugins.springsecurity.userLookup.authoritiesPropertyName = 'authorities'
+        application.config.grails.plugin.springsecurity.password.algorithm = 'SHA-512'
+        application.config.grails.plugin.springsecurity.userLookup.userDomainClassName = 'spud.security.SpudUser'
+        application.config.grails.plugin.springsecurity.userLookup.usernamePropertyName = 'login'
+        // application.config.grails.plugin.springsecurity.dao.reflectionSaltSourceProperty = 'login'
+        application.config.grails.plugin.springsecurity.password.algorithm = 'SHA-512'
+        application.config.grails.plugin.springsecurity.password.hash.iterations = 1
+        application.config.grails.plugin.springsecurity.authority.className = 'spud.security.SpudRole'
+        application.config.grails.plugin.springsecurity.authority.nameField = 'authority'
+        application.config.grails.plugin.springsecurity.userLookup.authoritiesPropertyName = 'authorities'
+        application.config.grails.plugin.springsecurity.rejectIfNoRule = false
+        application.config.grails.plugin.springsecurity.fii.rejectPublicInvocations = false
         // application.config.grails.plugin.springsecurity.rejectIfNoRule = true
         // application.config.grails.plugin.springsecurity.fii.rejectPublicInvocations = false
         sharedSecurityBridge(SpudSecurityBridge) {

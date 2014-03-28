@@ -103,6 +103,8 @@ class SpudUser {
 			digest = springSecurityService.encodePassword(password)
 		}
 		password = digest
+
+		println "digest: ${digest}"
 	}
 
 

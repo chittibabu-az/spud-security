@@ -16,7 +16,7 @@
 			<div id="detail_wrapper">
 				<h2>
 					<span class="thumb_wrapper">
-						<asset:image src="spud/admin/users_thumb.png"/>
+						<asset:image src="spud/admin/users_icon.png"/>
 		      </span>
 					Setup
 				</h2>

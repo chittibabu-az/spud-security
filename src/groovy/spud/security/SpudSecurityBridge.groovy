@@ -3,6 +3,8 @@ package spud.security
 import org.grails.plugin.securitybridge.AbstractSecurityBridge
 import org.springframework.security.web.savedrequest.DefaultSavedRequest
 import org.springframework.security.web.WebAttributes
+import org.springframework.web.context.request.RequestContextHolder
+import org.springframework.security.web.savedrequest.HttpSessionRequestCache
 import java.lang.reflect.Field
 
 class SpudSecurityBridge extends AbstractSecurityBridge{
@@ -100,16 +102,8 @@ class SpudSecurityBridge extends AbstractSecurityBridge{
 	 * @param request The request object
 	 */
 	def storeLocation(request) {
-		def savedRequest = new DefaultSavedRequest(request,new org.springframework.security.web.PortResolverImpl())
-    try {
-       Field f = DefaultSavedRequest.getDeclaredField('requestURI')
-       f.accessible = true
-       f.set savedRequest, request.getForwardURI()
-    }
-    catch (ex) {
-       log.error "Error assigning request to spring security for auth success!"
-    }
-		request.session.setAttribute(WebAttributes.SAVED_REQUEST, savedRequest);
+		def savedRequest = new SpudSecurityRequestWrapper(request, 'AUTHORIZED')
+		new HttpSessionRequestCache().saveRequest(savedRequest,RequestContextHolder.getRequestAttributes().getResponse())
 	}
 
 	/**
@@ -128,16 +122,16 @@ class SpudSecurityBridge extends AbstractSecurityBridge{
    * @return Must return a Map of arguments to pass to g:link to create the link
    */
   Map createLink(String action) {
-  	switch(action) {
-  		case 'login':
-  			return getLoginUrl();
-  		case 'logout':
-  			return getLogoutUrl();
-  	}
+	switch(action) {
+		case 'login':
+			return getLoginUrl();
+		case 'logout':
+			return getLogoutUrl();
+	}
   }
 
   Map getLoginUrl() {
-  	def userCount = SpudUser.count()
+	def userCount = SpudUser.count()
 		if(userCount == 0) {
 			return [controller: "setup", namespace: "spud_admin", action: "create"]
 		}
@@ -145,6 +139,6 @@ class SpudSecurityBridge extends AbstractSecurityBridge{
   }
 
   Map getLogoutUrl() {
-		return [controller: 'logout', action: 'index']
+		return [controller: 'logout', action: 'index', method: 'POST', "data-method": 'POST']
 	}
 }
