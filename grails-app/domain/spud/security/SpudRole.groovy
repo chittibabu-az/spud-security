@@ -2,13 +2,15 @@ package spud.security
 
 class SpudRole {
 
-   String authority
+    String authority
 
-   static mapping = {
-      cache true
-   }
+    static mapping = {
+        def cfg = it?.getBean('grailsApplication')?.config
+        datasource(cfg?.spud?.core?.datasource ?: 'DEFAULT')
+        cache true
+    }
 
-   static constraints = {
-      authority blank: false, unique: true
-   }
+    static constraints = {
+        authority blank: false, unique: true
+    }
 }

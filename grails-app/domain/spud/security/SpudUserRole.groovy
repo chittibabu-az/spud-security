@@ -58,6 +58,8 @@ class SpudUserRole implements Serializable {
    }
 
    static mapping = {
+       def cfg = it?.getBean('grailsApplication')?.config
+       datasource(cfg?.spud?.core?.datasource ?: 'DEFAULT')
       id composite: ['role', 'user']
       version false
    }

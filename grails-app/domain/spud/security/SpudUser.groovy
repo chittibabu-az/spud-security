@@ -53,6 +53,8 @@ class SpudUser {
 	}
 
 	static mapping = {
+		def cfg = it?.getBean('grailsApplication')?.config
+		datasource(cfg?.spud?.core?.datasource ?: 'DEFAULT')
 		table 'spud_users'
 		autoTimestamp true
 		password column: 'crypted_password'
@@ -100,11 +102,10 @@ class SpudUser {
 		def digest = "${password}${passwordSalt}"
 
 		for ( i in 1..20 ) {
-			digest = springSecurityService.encodePassword(password)
+			digest = springSecurityService.encodePassword(digest)
 		}
 		password = digest
 
-		println "digest: ${digest}"
 	}
 
 
