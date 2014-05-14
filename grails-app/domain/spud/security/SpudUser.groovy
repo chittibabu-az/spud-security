@@ -99,12 +99,9 @@ class SpudUser {
 		if(!this.passwordSalt) {
 			this.passwordSalt = login;
 		}
-		def digest = "${password}${passwordSalt}"
 
-		for ( i in 1..20 ) {
-			digest = springSecurityService.encodePassword(digest)
-		}
-		password = digest
+		
+		password = springSecurityService.encodePassword(password)
 
 	}
 

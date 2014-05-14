@@ -16,7 +16,7 @@
 import spud.security.SpudSecurityBridge
 
 class SpudSecurityGrailsPlugin {
-    def version = "0.4.0"
+    def version = "0.4.1"
     def grailsVersion = "2.3 > *"
     def pluginExcludes = [
         "grails-app/views/error.gsp"
@@ -38,7 +38,8 @@ class SpudSecurityGrailsPlugin {
         application.config.grails.plugin.springsecurity.userLookup.usernamePropertyName = 'login'
         // application.config.grails.plugin.springsecurity.dao.reflectionSaltSourceProperty = 'login'
         application.config.grails.plugin.springsecurity.password.algorithm = 'SHA-512'
-        application.config.grails.plugin.springsecurity.password.hash.iterations = 1
+        application.config.grails.plugin.springsecurity.password.hash.iterations = 20
+        /*application.config.grails.plugin.springsecurity.dao.reflectionSaltSourceProperty == 'passwordSalt'*/
         application.config.grails.plugin.springsecurity.authority.className = 'spud.security.SpudRole'
         application.config.grails.plugin.springsecurity.authority.nameField = 'authority'
         application.config.grails.plugin.springsecurity.userLookup.authoritiesPropertyName = 'authorities'
