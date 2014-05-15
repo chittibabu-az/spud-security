@@ -9,10 +9,15 @@ Installation/Usage
 To install simply add the spud-security plugin to your BuildConfig:
 
 ```groovy
+repositories {
+  mavenRepo "http://repo.spring.io/milestone/"
+}
 plugins {
-  compile ':spud-security:0.4.0'
+  compile ':spud-security:0.4.1'
 }
 ```
+
+**NOTE** The repository directive is for the current RC2 release of Spring Security (this should go away when spring security goes final)
 
 This plugin also provides a convenient administrative interface for managing users/roles. (View from your /spud/admin interface).
 
