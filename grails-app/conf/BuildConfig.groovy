@@ -19,12 +19,11 @@ grails.project.dependency.resolution = {
         grailsCentral()
         mavenLocal()
         mavenCentral()
-        mavenRepo "http://repo.spring.io/milestone/"
     }
 
     plugins {
         runtime ':spud-core:0.4.1'
-        compile ":spring-security-core:2.0-RC2"
+        compile ":spring-security-core:2.0-RC3"
         build(":release:3.0.1",
               ":rest-client-builder:1.0.3") {
             export = false
