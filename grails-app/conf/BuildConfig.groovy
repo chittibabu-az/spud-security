@@ -22,13 +22,25 @@ grails.project.dependency.resolution = {
     }
 
     plugins {
-        runtime ':spud-core:0.4.1'
-        compile ":spring-security-core:2.0-RC3"
-        build(":release:3.0.1",
-              ":rest-client-builder:1.0.3") {
-            export = false
+        if(System.getProperty('plugin.mode') != 'local') {
+            runtime ':spud-core:0.6.0'
+            runtime(':hibernate4:4.3.5.4') {
+                export = false
+            }
+
+            build(":release:3.0.1",
+                  ":rest-client-builder:1.0.3") {
+                export = false
+            }
         }
+
+        compile ":spring-security-core:2.0-RC4"
+
+
     }
 }
 
-//grails.plugin.location."spud-core" = "../spud-core"
+
+if(System.getProperty('plugin.mode') == 'local') {
+    grails.plugin.location."spud-core" = "../spud-core"
+}

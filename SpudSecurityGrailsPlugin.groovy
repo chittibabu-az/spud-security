@@ -16,7 +16,7 @@
 import spud.security.SpudSecurityBridge
 
 class SpudSecurityGrailsPlugin {
-    def version = "0.4.2"
+    def version = "0.6.0"
     def grailsVersion = "2.3 > *"
     def pluginExcludes = [
         "grails-app/views/error.gsp"
